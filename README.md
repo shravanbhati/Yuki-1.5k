@@ -25,7 +25,7 @@ Furigana provides the reading, followed by the word’s meaning. Both word and s
 
 ## Where Do I Get the Deck?
 
-You can download Yuki 1.5k from the [releases](https://github.com/YukiNihongo/Yuki1.5k/releases/) page on GitHub or [AnkiWeb](https://ankiweb.net/shared/info/1234567890) if it is available for public use. **Note:** The deck is supported on Anki 2.1.50+.
+You can download Yuki 1.5k from the [releases](https://github.com/shravanbhati/Yuki-1.5k/releases) page on GitHub **Note:** The deck is supported on Anki 2.1.50+.
 
 ## What’s New in Yuki 1.5k?
 
