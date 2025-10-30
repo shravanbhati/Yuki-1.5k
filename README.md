@@ -9,11 +9,11 @@ This page explains everything about the deck.
 ## Preview
 
 Desktop view:  
-<img src="/image/front-desktop.png">
-<img src="/image/back-desktop.png">
+![Front-side](/image/front-desktop.png)
+![Back-side](/image/back-desktop.png)
 
 Mobile view (AnkiDroid):  
-<img src="/image/mobile.webp">
+![Mobile](/image/mobile.webp)
 
 
 
@@ -35,7 +35,7 @@ To add one:
 2. Select **Edit Card**.
 3. Add your text or image inside the **Hint** field.
 
-<img src="/image/button.gif">
+![Add Hint to card](/image/hint.gif)
 
 
 
@@ -47,7 +47,7 @@ Click the **More Info** button on any card to view:
 - Frequency  
 - Card buttons
 
-<img src="/image/button.jpg">
+![More Info](/image/button.gif)
 
 **Book button** – Opens the word in Jisho dictionary  
 **Image button** – Opens Google Images for the word  
@@ -70,4 +70,4 @@ The deck is available on the [Releases](../../releases) page of this repository.
 
 ## Credits
 
-Thanks to the [Kaishi 1.5K](https://github.com/donkuri/kaishi) team and contributors for building the original deck that made this possible.
+Thanks to the [Kaishi 1.5K](https://github.com/donkuri/kaishi) and volunteers for creating such an excellent deck!
