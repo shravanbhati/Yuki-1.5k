@@ -1,0 +1,537 @@
+:root {
+  --font-family-japanese: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    "Noto Sans JP", "Takao PGohtic", sans-serif;
+  --font-family-english: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-large: 22px;
+  --font-size-xlarge: 35px;
+  --font-size-small: 14px;
+  --font-size-xsmall: 12px;
+
+  /* Light Theme */
+  --text-color-light: #2c3e50;
+  --bg-color-light: #f8f9fa;
+  --card-bg-light: #ffffff;
+  --border-color-light: #dee2e6;
+  --accent-color-light: #0abab5;
+  --secondary-text-light: #5a6268;
+  --button-bg-light: #e9ecef;
+  --button-text-light: #2c3e50;
+  --button-hover-bg-light: #d0d5db;
+  --divider-color-light: #e0e0e0;
+  --icon-button-bg-light: #f1f3f5;
+  --icon-button-text-light: #495057;
+  --icon-button-hover-bg-light: #e0e0e0;
+  --toggle-button-bg-light: #7f8caa;
+  --toggle-button-text-light: #ffffff;
+  --toggle-button-hover-bg-light: #99a7c7;
+
+  /* Dark Theme */
+  --text-color-dark: #ecf0f1;
+  --bg-color-dark: #22272e;
+  --card-bg-dark: #2d333b;
+  --border-color-dark: #444c56;
+  --accent-color-dark: #4885e1;
+  --secondary-text-dark: #adb5bd;
+  --button-bg-dark: #373e47;
+  --button-text-dark: #ecf0f1;
+  --button-hover-bg-dark: #495057;
+  --divider-color-dark: #444c56;
+  --icon-button-bg-dark: #373e47;
+  --icon-button-text-dark: #ced4da;
+  --icon-button-hover-bg-dark: #505860;
+  --toggle-button-bg-dark: #7f8caa;
+  --toggle-button-text-dark: #ffffff;
+  --toggle-button-hover-bg-dark: #99a7c7;
+}
+body {
+  margin: 0;
+}
+body.nightMode {
+  padding: 0;
+}
+.card {
+  font-family: var(--font-family-english);
+  font-size: var(--font-size-base);
+  text-align: center;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.nightMode .card {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.card-content-wrapper {
+  background-color: var(--card-bg-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+  width: 500px;
+  min-height: 500px;
+  margin: 20px 5px 5px 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 500px) {
+  .card-content-wrapper {
+    width: 90vw;
+  }
+}
+.nightMode .card-content-wrapper {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-color-dark);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography & General Elements (adjustments for compactness) */
+h1,
+h2,
+h3 {
+  margin: 0 0 10px 0;
+}
+p {
+  margin: 0 0 8px 0;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--divider-color-light);
+  margin: 15px 0;
+}
+.nightMode hr {
+  border-top-color: var(--divider-color-dark);
+}
+.japanese-text {
+  font-family: var(--font-family-japanese);
+}
+
+.target-word-display {
+  font-size: var(--font-size-xlarge);
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--text-color-light);
+}
+.nightMode .target-word-display {
+  color: var(--text-color-dark);
+}
+
+.example-sentence-front {
+  font-size: var(--font-size-large);
+  margin-top: 10px;
+  color: var(--secondary-text-light);
+}
+.nightMode .example-sentence-front {
+  color: var(--secondary-text-dark);
+}
+.example-sentence-front .target-word {
+  font-weight: bold;
+  color: var(--accent-color-light);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+.nightMode .example-sentence-front .target-word {
+  color: var(--highlight-text-dark);
+}
+
+/* Back Side Specifics */
+.vocab-section {
+  margin-bottom: 15px;
+}
+.vocab-kanji-reading {
+  font-size: var(--font-size-xlarge);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.vocab-kanji-reading ruby rt {
+  font-size: 0.45em;
+  opacity: 0.85;
+  color: var(--secondary-text-light);
+}
+.nightMode .vocab-kanji-reading ruby rt {
+  color: var(--secondary-text-dark);
+}
+
+.vocab-meaning {
+  font-size: var(--font-size-large);
+  color: var(--text-color-light);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.nightMode .vocab-meaning {
+  color: var(--text-color-dark);
+}
+
+.example-section {
+  margin-bottom: 15px;
+  border-top: 1px solid var(--divider-color-light);
+  padding-top: 15px;
+}
+.nightMode .example-section {
+  border-top-color: var(--divider-color-dark);
+}
+.example-jp-furigana {
+  font-size: var(--font-size-large);
+  margin-bottom: 8px;
+}
+.example-jp-furigana ruby rt {
+  font-size: 0.45em;
+  opacity: 0.8;
+}
+.example-translation {
+  font-size: var(--font-size-base);
+  color: var(--secondary-text-light);
+  font-style: italic;
+}
+.nightMode .example-translation {
+  color: var(--secondary-text-dark);
+}
+
+.audio-section {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: var(--button-bg-light);
+}
+.nightMode .audio-section {
+  background-color: var(--button-bg-dark);
+}
+.audio-player-label {
+  font-size: var(--font-size-xsmall);
+  color: var(--secondary-text-light);
+  margin-top: 3px;
+}
+.nightMode .audio-player-label {
+  color: var(--secondary-text-dark);
+}
+
+/* "More Info" Toggle Button */
+.more-info-toggle {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 80px;
+  margin: 0 80px;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  background-color: var(--toggle-button-bg-light);
+  color: var(--toggle-button-text-light);
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 0; /* Important: this button will be followed by hr if content is visible */
+  transition: background-color 0.2s ease;
+}
+.nightMode .more-info-toggle {
+  background-color: var(--toggle-button-bg-dark);
+  color: var(--toggle-button-text-dark);
+}
+.more-info-toggle:hover {
+  background-color: var(--toggle-button-hover-bg-light);
+}
+.nightMode .more-info-toggle:hover {
+  background-color: var(--toggle-button-hover-bg-dark);
+}
+
+/* Toggleable Content Area */
+.toggleable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, margin-top 0.4s ease-out,
+    opacity 0.3s ease-in-out;
+  opacity: 0;
+  margin-top: 0;
+}
+.toggleable-content.visible {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Enhanced Details Section Styling */
+.details-section {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--divider-color-light);
+  border-radius: 8px;
+  text-align: left;
+}
+.nightMode .details-section {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: var(--border-color-dark);
+}
+
+.detail-item {
+  margin-bottom: 10px;
+  font-size: var(--font-size-small);
+  align-items: flex-start;
+}
+.note {
+  font-size: 18px;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+.detail-item strong {
+  color: var(--text-color-light);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+.nightMode .detail-item strong {
+  color: var(--text-color-dark);
+}
+.detail-item > span,
+.detail-item > div {
+  flex-grow: 1;
+}
+
+/* Action Buttons Toolbar */
+.actions-toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  background-color: var(--icon-button-bg-light);
+  color: var(--icon-button-text-light);
+  border: 1px solid var(--border-color-light);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
+  overflow: hidden;
+}
+.nightMode .icon-button {
+  background-color: var(--icon-button-bg-dark);
+  color: var(--icon-button-text-dark);
+  border-color: var(--border-color-dark);
+}
+.icon-button:hover {
+  background-color: var(--icon-button-hover-bg-light);
+  border-color: darken(var(--border-color-light), 10%);
+  transform: translateY(-1px) scale(1.05);
+}
+.nightMode .icon-button:hover {
+  background-color: var(--icon-button-hover-bg-dark);
+  border-color: lighten(var(--border-color-dark), 10%);
+}
+.icon-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+.icon-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* General link and furigana styling from user CSS */
+ruby rt {
+  color: var(--secondary-text-light);
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+.nightMode ruby rt {
+  color: var(--secondary-text-dark);
+}
+a {
+  text-decoration: underline;
+  color: var(--accent-color-dark);
+}
+b {
+  color: var(--accent-color-light);
+}
+.nightMode b {
+  color: var(--accent-color-dark);
+}
+
+/* --- Hint Field--- */
+.hint-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 480px;
+}
+
+.hint-toggle-checkbox {
+  display: none;
+}
+
+.hint-label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hint-actual-content {
+  display: block;
+  filter: blur(12px);
+  transition: filter 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  position: relative;
+  z-index: 0;
+}
+
+.hint-interactive-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.hint-toggle-checkbox {
+  display: none;
+}
+
+.hint {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.hint-content-area {
+  filter: blur(15px);
+  transition: filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling for image hints within the content area */
+.hint-content-area img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nightMode .hint-content-area > div,
+.nightMode .hint-content-area > p {
+  color: var(--text-color-dark);
+}
+
+.hint::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+
+  /* Subtle background color for the overlay */
+  background-color: rgba(30, 30, 50, 0);
+
+  /* Particle layers */
+  --particle-color-light: rgba(255, 255, 255, 0.6);
+  --particle-color-dark: rgba(200, 200, 220, 0.5);
+  --particle-color: var(--particle-color-light);
+
+  background-image:
+    /* Layer 1: Small, dense, slow particles */ radial-gradient(
+      circle at center,
+      var(--particle-color) 0.8px,
+      transparent 0.8px
+    ),
+    /* Layer 2: Medium, less dense, medium speed particles */
+      radial-gradient(
+        circle at center,
+        var(--particle-color) 1.2px,
+        transparent 1.2px
+      ),
+    /* Layer 3: Larger, sparse, faster particles */
+      radial-gradient(
+        circle at center,
+        var(--particle-color) 1.5px,
+        transparent 1.5px
+      );
+
+  background-repeat: repeat;
+  background-size: 35px 35px, 60px 60px, 90px 90px; /* 3 layer Density*/
+
+  animation: moveParticles1 25s linear infinite,
+    moveParticles2 20s linear infinite, moveParticles3 15s linear infinite;
+
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 10px;
+}
+
+.nightMode .hint::before {
+  --particle-color: var(--particle-color-dark);
+  background-color: rgba(10, 10, 20, 0);
+}
+
+/* Keyframes for particle animations */
+/* Slow, diagonal drift */
+@keyframes moveParticles1 {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: -35px 35px, -60px 60px, -90px 90px;
+  }
+}
+
+/* Medium, different diagonal drift */
+@keyframes moveParticles2 {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 35px 70px, 60px 120px, 90px 180px;
+  }
+}
+
+/* Faster, more vertical/horizontal drift */
+@keyframes moveParticles3 {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 0px -105px, 0px -180px, 0px -270px;
+  }
+}
+
+/* --- Click Reveal Logic --- */
+.hint-toggle-checkbox:checked + .hint .hint-content-area {
+  filter: blur(0px);
+}
+
+.hint-toggle-checkbox:checked + .hint::before {
+  opacity: 0;
+  animation-play-state: paused;
+}
+
+/* --- End of Hint Field Styling --- */

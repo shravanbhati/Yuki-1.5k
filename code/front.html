@@ -1,0 +1,18 @@
+<div lang="ja" class="card-content-wrapper">
+  <div class="target-word-display japanese-text">{{Word}}</div>
+
+  {{#Sentence}}
+  <div class="example-sentence-front japanese-text">{{Sentence}}</div>
+  {{/Sentence}} {{#Hint}}
+  <div class="hint-interactive-wrapper">
+    <input
+      type="checkbox"
+      id="hint-toggle-front"
+      class="hint-toggle-checkbox"
+    />
+    <label for="hint-toggle-front" class="hint">
+      <div class="hint-content-area">{{Hint}}</div>
+    </label>
+  </div>
+  {{/Hint}}
+</div>
