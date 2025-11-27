@@ -156,12 +156,13 @@
       </a>
 
       <!-- ChatGPT Button -->
+      <!-- href="https://shravanbhati.github.io/Yuki-1.5k/redirect.html?word={{Word}}&sentence={{Sentence}}" -->
       <a
         class="icon-button"
         target="_blank"
-        href="#"
         title="Ask ChatGPT about {{Word}}"
         id="open-chatgpt"
+        style="cursor: pointer"
       >
         <svg
           width="24px"
@@ -298,19 +299,10 @@
   })();
 </script>
 
-<!-- ChatGPT BUTTON SCRIPT -->
+<!-- ChatGPT Button Script -->
 <script>
-  (async function () {
-    const templateUrl =
-      "https://cdn.jsdelivr.net/gh/shravanbhati/Yuki-1.5k@main/gpt-prompt.txt";
-
-    const fields = {
-      word: "{{Word}}",
-      sentence: "{{Sentence}}",
-    };
-
-    // fallback inline template
-    const fallbackTemplate = `You are a Japanese-learning assistant optimized for clarity and accuracy.  
+  (function () {
+    const prompt = `You are a Japanese-learning assistant optimized for clarity and accuracy.  
 Do the following for the word「{{Word}}」 
 
 For LLM Context: Example sentence 「{{Sentence}}」
@@ -348,32 +340,9 @@ Do not use page breaks in response.
 
 Your entire response should follow the structure and the user’s instructions strictly.`;
 
-    async function getTemplate() {
-      try {
-        const r = await fetch(templateUrl, { cache: "no-store" });
-        if (!r.ok) throw new Error("fetch failed");
-        return await r.text();
-      } catch (e) {
-        return fallbackTemplate;
-      }
-    }
+    const encoded = encodeURIComponent(prompt);
 
-    function fillTemplate(tpl, f) {
-      return tpl.replace(/\{\{(\w+)\}\}/g, (_, name) => f[name] || "");
-    }
-
-    function encodeForChatGPT(s) {
-      return encodeURIComponent(s);
-    }
-
-    document
-      .getElementById("open-chatgpt")
-      .addEventListener("click", async () => {
-        const tpl = await getTemplate();
-        const filled = fillTemplate(tpl, fields);
-        const q = encodeForChatGPT(filled);
-        const url = "https://chat.openai.com/?q=" + q;
-        window.open(url, "_blank");
-      });
+    document.getElementById("open-chatgpt").href =
+      "https://chat.openai.com/?q=" + encoded;
   })();
 </script>
