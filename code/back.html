@@ -42,6 +42,7 @@
     {{/Sentence Audio}}
   </div>
 
+  <div class="image-section">{{#Picture}} {{Picture}} {{/Picture}}</div>
   <!-- "More Info" Toggle -->
   <div type="button" class="more-info-toggle" id="moreInfoToggleBtn">
     More Info
@@ -52,7 +53,12 @@
     <hr />
     <!-- Details Section -->
     <div class="details-section">
-      {{#Pitch Accent}}
+      {{#Frequency}}
+      <div class="detail-item">
+        <strong>Frequency:</strong>
+        <span>{{Frequency}}</span>
+      </div>
+      {{/Frequency}} {{#Pitch Accent}}
       <div class="detail-item">
         <strong>Pitch Accent:</strong>
         <span>{{Pitch Accent}}</span>
@@ -62,23 +68,18 @@
         <strong>Pitch Accent Note:</strong>
         <span>{{Pitch Accent Notes}}</span>
       </div>
-      {{/Pitch Accent Notes}} {{#Frequency}}
-      <div class="detail-item">
-        <strong>Frequency:</strong>
-        <span>{{Frequency}}</span>
-      </div>
-      {{/Frequency}}
+      {{/Pitch Accent Notes}}
     </div>
 
-    <!-- Actions Toolbar: Jisho & Google Images Buttons -->
+    <!-- Buttons -->
     <div class="actions-toolbar">
+      <!--  Jisho Button -->
       <a
         href="https://jisho.org/search/{{Word}}"
         class="icon-button"
         target="_blank"
         title="Search {{Word}} on Jisho.org"
       >
-        <!--  Jisho SVG -->
         <svg
           width="800px"
           height="800px"
@@ -153,13 +154,36 @@
           </g>
         </svg>
       </a>
+
+      <!-- ChatGPT Button -->
+      <a
+        class="icon-button"
+        target="_blank"
+        href="#"
+        title="Ask ChatGPT about {{Word}}"
+        id="open-chatgpt"
+      >
+        <svg
+          width="24px"
+          height="24px"
+          viewBox="0 0 24 24"
+          role="img"
+          fill="#7f8caa"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"
+          />
+        </svg>
+      </a>
+
+      <!-- Google Images Button -->
       <a
         href="https://www.google.com/search?tbm=isch&q={{Word}}"
         class="icon-button"
         target="_blank"
         title="Search Images of {{Word}} on Google"
       >
-        <!-- Google Images SVG -->
         <svg
           width="800px"
           height="800px"
@@ -176,13 +200,38 @@
           />
         </svg>
       </a>
+
+      <!-- Sentence Search Button -->
       <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfcDa2ukZtviENV4vXobvCvpbgfeo1jbEtX_8UzTTRNgBNRwA/viewform?usp=pp_url&entry.806686816=Yuki1.5K&entry.1845848219=1.0.0&entry.390635328={{Frequency}}"
+        href="https://www.kanshudo.com/searcht?q={{Word}}"
+        class="icon-button"
+        target="_blank"
+        title="See More Sentences for {{Word}}"
+      >
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 20 20"
+          fill="#7f8caa"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="0" fill="none" width="20" height="20" />
+
+          <g>
+            <path
+              d="M18 3v2H2V3h16zm-6 4v2H2V7h10zm6 0v2h-4V7h4zM8 11v2H2v-2h6zm10 0v2h-8v-2h8zm-4 4v2H2v-2h12z"
+            />
+          </g>
+        </svg>
+      </a>
+
+      <!-- Report Button -->
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfcDa2ukZtviENV4vXobvCvpbgfeo1jbEtX_8UzTTRNgBNRwA/viewform?usp=pp_url&entry.806686816=Yuki1.5K&entry.1845848219=2.0.0&entry.390635328={{Frequency}}"
         class="icon-button"
         target="_blank"
         title="Report"
       >
-        <!-- Report SVG -->
         <svg
           fill="#7f8caa"
           width="800px"
@@ -201,7 +250,7 @@
   </div>
 </div>
 
-<!-- CARD MORE INFO TOGGLE -->
+<!-- CARD <MORE INFO> TOGGLE -->
 <script>
   (function () {
     const toggleBtn = document.getElementById("moreInfoToggleBtn");
@@ -246,5 +295,85 @@
         }
       }
     }
+  })();
+</script>
+
+<!-- ChatGPT BUTTON SCRIPT -->
+<script>
+  (async function () {
+    const templateUrl =
+      "https://cdn.jsdelivr.net/gh/shravanbhati/Yuki-1.5k@main/gpt-prompt.txt";
+
+    const fields = {
+      word: "{{Word}}",
+      sentence: "{{Sentence}}",
+    };
+
+    // fallback inline template
+    const fallbackTemplate = `You are a Japanese-learning assistant optimized for clarity and accuracy.  
+Do the following for the word「{{Word}}」 
+
+For LLM Context: Example sentence 「{{Sentence}}」
+
+Do not use page breaks in response.
+
+1. Basic check:
+- If you are confident the word is valid and recorded in standard Japanese dictionaries/corpora, proceed.  
+- If you are not confident (rare word, typo, dialectal, archaic or uncommon), respond exactly:  
+  “I’m sorry. I can’t help with this word due to less reliable information.”  
+  Then stop.
+- No need to mention checks in response if the word is a valid Japanese word.
+
+2. Provide Meaning:  
+- Offer a simple, clear English explanation (or simple Japanese + English if helpful).  
+- Use everyday language suitable for a learner (assume minimal prior knowledge).  
+
+3. Show usage in real life —  
+- Give *2–3 example sentences* using that target word, drawn from real-world native content (blogs, news, conversation, literature etc.).  
+- Cite or reference the source when possible (URL or site name).  
+- If you cannot reliably find real native example sentences, say:  
+  “I couldn’t find reliable natural sentences for this word.”  
+
+4. Pronunciation / reading / script details:
+- Show kana reading (if kanji), or romaji if given kana/kanji.  
+- Indicate parts of speech (noun, verb, adjective, etc.).  
+
+5. Extra context / nuance (optional):
+- If the word has multiple meanings depending on context, provide brief notes for alternate meanings or common usages.  
+- If there are common mistakes or confusable words, mention them.  
+
+6. At the end of the response, ask the user if they want to include an additional request along with the word, for example:  
+- “Show similar words / synonyms.”  
+- “Give a mnemonic to remember.”  
+
+Your entire response should follow the structure and the user’s instructions strictly.`;
+
+    async function getTemplate() {
+      try {
+        const r = await fetch(templateUrl, { cache: "no-store" });
+        if (!r.ok) throw new Error("fetch failed");
+        return await r.text();
+      } catch (e) {
+        return fallbackTemplate;
+      }
+    }
+
+    function fillTemplate(tpl, f) {
+      return tpl.replace(/\{\{(\w+)\}\}/g, (_, name) => f[name] || "");
+    }
+
+    function encodeForChatGPT(s) {
+      return encodeURIComponent(s);
+    }
+
+    document
+      .getElementById("open-chatgpt")
+      .addEventListener("click", async () => {
+        const tpl = await getTemplate();
+        const filled = fillTemplate(tpl, fields);
+        const q = encodeForChatGPT(filled);
+        const url = "https://chat.openai.com/?q=" + q;
+        window.open(url, "_blank");
+      });
   })();
 </script>
