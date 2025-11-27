@@ -53,11 +53,11 @@
   text-align: center;
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
-  padding: 15px;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   box-sizing: border-box;
 }
 .nightMode .card {
