@@ -1,0 +1,79 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Open in ChatGPT</title>
+<body>
+<script>
+(function(){
+  
+  const promptTemplate = `You are a Japanese-learning assistant optimized for clarity and accuracy.  
+Do the following for the word「{{word}}」 
+
+For LLM Context: Example sentence 「{{sentence}}」
+
+Do not use page breaks in response.
+
+1. Basic check:
+- If you are confident the word is valid and recorded in standard Japanese dictionaries/corpora, proceed.  
+- If you are not confident (rare word, typo, dialectal, archaic or uncommon), respond exactly:  
+  “I’m sorry. I can’t help with this word due to less reliable information.”  
+  Then stop.
+- No need to mention validation checks in response only if the word is a valid Japanese word.
+
+2. Provide Meaning:  
+- Offer a simple, clear English explanation (or simple Japanese + English if helpful).  
+- Use everyday language suitable for a learner (assume minimal prior knowledge).  
+
+3. Show usage in real life —  
+- Give *2–3 example sentences* using that target word, drawn from real-world native content (blogs, news, conversation, literature etc.).  
+- Cite or reference the source when possible (URL or site name).  
+- If you cannot reliably find real native example sentences, say:  
+  “I couldn’t find reliable natural sentences for this word.”  
+
+4. Pronunciation / reading / script details:
+- Show kana reading (if kanji), or romaji if given kana/kanji.  
+- Indicate parts of speech (noun, verb, adjective, etc.).  
+
+5. Extra context / nuance (optional):
+- If the word has multiple meanings depending on context, provide brief notes for alternate meanings or common usages.  
+- If there are common mistakes or confusable words, mention them.  
+
+6. At the end of the response, ask the user if they want to include an additional request along with the word, for example:  
+- “Show similar words / synonyms.”  
+- “Give a mnemonic to remember.”  
+
+Your entire response should follow the structure and the user’s instructions strictly.`;
+
+  // read query params
+  const params = new URLSearchParams(location.search);
+  const fields = { word: params.get('word') || '', sentence: params.get('sentence') || '' };
+
+  // fill template
+  const filled = promptTemplate.replace(/\{\{(\w+)\}\}/g, (_, k) => fields[k] || '');
+
+  const encoded = encodeURIComponent(filled);
+
+  // Prepare intent (Android) and web fallback
+  const intentURL = 'intent://chat.openai.com/?q=' + encoded + '#Intent;package=com.openai.chat;scheme=https;end';
+  const webURL = 'https://chat.openai.com/?q=' + encoded;
+
+  // Try to open app via intent, then fallback to web.
+  // The small timeouts let browsers attempt the handoff automatically.
+  setTimeout(() => {
+    location.href = intentURL;
+    setTimeout(() => { location.replace(webURL); }, 700);
+  }, 10);
+
+  // As a guaranteed fallback for hard failures: show the prompt and a copy button
+  // (in case the browser blocks redirects)
+  setTimeout(() => {
+    if (document.body.innerText.includes('Opening')) {
+      document.body.innerHTML = "<h3>If nothing opened, copy the prompt below and paste into ChatGPT</h3><textarea id='p' style='width:100%;height:200px'>" + decodeURIComponent(encoded) + "</textarea><button id='c'>Copy prompt</button>";
+      document.getElementById('c').addEventListener('click', () => {
+        const t = document.getElementById('p'); t.select(); document.execCommand('copy');
+      });
+    }
+  }, 2000);
+})();
+</script>
+<p>Opening ChatGPT…</p>
+</body>
