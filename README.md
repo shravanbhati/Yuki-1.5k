@@ -1,73 +1,125 @@
-# Yuki 1.5K
+<div align="center">
 
-Yuki 1.5K is a modern Japanese vocabulary deck for Anki, created to give beginners a smooth and clean learning experience.  
-It is based on the original [Kaishi 1.5K](https://github.com/donkuri/kaishi) deck and keeps the same content while adding a better UI and extra features.  
-This page explains everything about the deck.
+# ❄️ Yuki 1.5K
 
+### A Beautiful Japanese Vocabulary Deck for Anki
 
+*Modern UI • Clean Design • Enhanced Learning Experience*
 
-## Preview
+[![Download Latest Release](https://img.shields.io/github/v/release/shravanbhati/yuki-1.5k?style=for-the-badge&logo=github&color=5865F2)](../../releases)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Based on Kaishi 1.5K](https://img.shields.io/badge/Based%20on-Kaishi%201.5K-purple?style=for-the-badge)](https://github.com/donkuri/kaishi)
 
-Desktop view:  
-![Front-side](/image/front-desktop.png)
-![Back-side](/image/back-desktop.png)
-
-Mobile view (AnkiDroid):  
-![Mobile](/image/mobile.webp)
+</div>
 
 
+## 📖 Overview
 
-## About Images
+**Yuki 1.5K** is a modern reimagining of the popular [Kaishi 1.5K](https://github.com/donkuri/kaishi) deck, designed to give beginners a smooth and visually appealing Japanese learning experience. Same trusted content, elevated design.
 
-This deck does not include any of the original images from Kaishi 1.5K.  
-I personally believe that images do not help much in learning vocabulary.  
-If you want to see related images, click on the **Image** button on the card. It will open Google Images for that word.
-
-
-
-## Hint Feature
-
-You can add your own hint to the front of any card.  
-The hint stays hidden until you click on it.  
-
-To add one:
-1. While reviewing, click the three dots.
-2. Select **Edit Card**.
-3. Add your text or image inside the **Hint** field.
-
-![Add Hint to card](/image/hint.gif)
+> **⚠️ Important Note**  
+> If you already have the Kaishi deck, you cannot import Yuki directly. Instead, you can apply Yuki's styling to your existing Kaishi deck:
+> - 📝 [Written Guide](/code/Add-Yuki-Styling-to-Kaishi.md)
+> - 🎥 [Video Tutorial](#) (SOON)
 
 
+## 🖼️ Preview
 
-## Features
+<details open>
+<summary><b>📱 Mobile View (AnkiDroid)</b></summary>
 
-Click the **More Info** button on any card to view:
-- Pitch accent  
-- Pitch accent note  
-- Frequency  
-- Card buttons
+<br>
 
-![More Info](/image/button.gif)
+![Mobile View](/image/mobile-preview.png)
 
-**Book button** – Opens the word in Jisho dictionary  
-**Image button** – Opens Google Images for the word  
-**Report button** – Opens a Google Form to send feedback or report a bug  
+</details>
 
+<details>
+<summary><b>💻 Desktop View</b></summary>
 
+<br>
 
-## Compatibility
+**Front Side**
+![Front-side](/image/front-v2.png)
 
-You can apply Yuki 1.5K styling to your existing Kaishi 1.5K deck without losing progress.  
-A short guide on this will be added soon.
+**Back Side**
+![Back-side](/image/back-v2.png)
 
-
-
-## Download
-
-The deck is available on the [Releases](../../releases) page of this repository.
+</details>
 
 
+## ✨ Features
 
-## Credits
+### 💡 Hint Field
+Add custom hints to any card that stay hidden until you need them:
 
-Thanks to the [Kaishi 1.5K](https://github.com/donkuri/kaishi) and volunteers for creating such an excellent deck!
+1. Click the three dots while reviewing
+2. Select **Edit Card**
+3. Add text or images to the **Hint** field
+
+![Hint Feature Demo](/image/hint.gif)
+
+### ℹ️ More Information
+Click **More Info** on any card to access:
+
+- 🔢 **Frequency ranking**
+- 📊 **Pitch accent patterns**
+- 📝 **Pitch accent notes**
+- 🔲 **Quick-access buttons**
+
+### 🔗 Integrated Learning Tools
+
+| Button | Function |
+|--------|----------|
+| 📚 **Jisho** | Open word in Jisho dictionary |
+| 🤖 **ChatGPT** | Analyze word with [custom prompt](/gpt-prompt.txt) |
+| 🖼️ **Image** | Search Google Images for visual context |
+| 📝 **Sentence** | View example sentences on Kanshudo |
+| 🐛 **Report** | Submit feedback or bug reports |
+
+
+
+## 📥 Download
+
+Get the latest version from the [Releases](../../releases) page.
+```bash
+# Latest release
+Download Yuki-1.5K-v2.0.apkg
+```
+
+
+## 🚀 Getting Started
+
+1. **Download** the latest `.apkg` file from [Releases](../../releases)
+2. **Open Anki** on your device
+3. **Import** the deck: `Import → Select Yuki-1.5K.apkg`
+4. **Start learning!** 🎉
+
+
+## 🤝 Contributing
+
+Found a bug or have a suggestion? 
+
+- 🐛 [Report an issue](../../issues)
+- 💡 [Submit a feature request](../../issues/new)
+
+
+## 💝 Credit
+
+This deck wouldn't exist without:
+
+- **[Kaishi 1.5K](https://github.com/donkuri/kaishi)** – The excellent original deck and content
+
+---
+
+<div align="center">
+
+### ⭐ Enjoying Yuki 1.5K?
+
+Give this repo a star to show your support!
+
+**Made with ❤️ for Japanese learners**
+
+[Download Now](../../releases) • [Report Bug](../../issues) • [Request Feature](../../issues/new)
+
+</div>
