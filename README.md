@@ -20,7 +20,7 @@
 > **⚠️ Important Note**  
 > If you already have the Kaishi deck, you cannot import Yuki directly. Instead, you can apply Yuki's styling to your existing Kaishi deck:
 > - 📝 [Written Guide](/code/Add-Yuki-Styling-to-Kaishi.md)
-> - 🎥 [Video Tutorial](#) (SOON)
+> - 🎥 [Video Tutorial](https://youtu.be/ie7RYi9uVv4)
 
 
 ## 🖼️ Preview
